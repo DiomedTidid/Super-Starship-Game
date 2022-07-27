@@ -6,9 +6,9 @@ public class Hero : MonoBehaviour
 {
     static public Hero S;
     [Header("Set in Inspector")]
-    public float speed = 30;
-    public float rollMult = -45;
-    public float pitchMult = 30;
+    [SerializeField]  private float speed = 30;
+    [SerializeField]  private float rollMult = -45;
+    [SerializeField]  private float pitchMult = 30;
 
     [Header("Set Dynamically")]
     public float shieldLevel = 1;
