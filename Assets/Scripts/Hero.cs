@@ -42,8 +42,11 @@ public class Hero : MonoBehaviour
     {
         shieldLevel--;
         Destroy(other.gameObject);
-        if (shieldLevel < 0) Destroy(this.gameObject);
-        EnemySpawner.S.DelayedRestart(restartDelay);
+        if (shieldLevel < 0)
+        {
+            Destroy(this.gameObject);
+            EnemySpawner.S.DelayedRestart(restartDelay);
+        }
                       
     }
 
