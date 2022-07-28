@@ -9,6 +9,10 @@ public class Hero : MonoBehaviour
     [SerializeField]  private float speed = 30;
     [SerializeField]  private float rollMult = -45;
     [SerializeField]  private float pitchMult = 30;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float bulletSpeed = 40;
+
+    private float restartDelay = 3f;
 
     [Header("Set Dynamically")]
     public float shieldLevel = 1;
@@ -28,8 +32,27 @@ public class Hero : MonoBehaviour
         pos.x += xAxis * speed * Time.deltaTime;
         pos.y += yAxis * speed * Time.deltaTime;
         transform.position = pos;
-
         transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * pitchMult, 0);
 
+        if (Input.GetKeyDown(KeyCode.Space)) TempFire();
+
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        shieldLevel--;
+        Destroy(other.gameObject);
+        if (shieldLevel < 0) Destroy(this.gameObject);
+        EnemySpawner.S.DelayedRestart(restartDelay);
+                      
+    }
+
+    private void TempFire()
+    {
+        GameObject projGo = Instantiate<GameObject>(bulletPrefab);
+        projGo.transform.position = transform.position;
+        Rigidbody rigidB = projGo.GetComponent<Rigidbody>();
+        rigidB.velocity = Vector3.up * bulletSpeed; 
+    }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBoundsCheck : MonoBehaviour
 {
     private float xBound = 35;
-    private float yBound = 45;
+    private float yBound = 47;
 
 
 
@@ -15,7 +15,7 @@ public class EnemyBoundsCheck : MonoBehaviour
         if (transform.position.x > xBound) Destroy(gameObject);
         if (transform.position.x < -xBound) Destroy(gameObject);
         if (transform.position.y < -yBound) Destroy(gameObject);
-
+        if (transform.position.y > yBound) Destroy(gameObject);
 
     }
 }
