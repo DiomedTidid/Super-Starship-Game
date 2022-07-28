@@ -11,6 +11,7 @@ public class Hero : MonoBehaviour
     [SerializeField]  private float pitchMult = 30;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed = 40;
+    [SerializeField] private GameObject shield;
 
     private float restartDelay = 3f;
 
@@ -47,7 +48,7 @@ public class Hero : MonoBehaviour
             Destroy(this.gameObject);
             EnemySpawner.S.DelayedRestart(restartDelay);
         }
-                      
+        else if (shieldLevel == 0)  shield.SetActive(false);     
     }
 
     private void TempFire()

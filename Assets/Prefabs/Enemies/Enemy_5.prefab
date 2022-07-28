@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8275693046935712621}
   - component: {fileID: 6142309228323604391}
   - component: {fileID: 4838082300030985055}
-  - component: {fileID: 7235139954592270781}
   - component: {fileID: 6028587940863212116}
   - component: {fileID: -425088776013460459}
+  - component: {fileID: -9189604818285911143}
   m_Layer: 7
   m_Name: Enemy_5
   m_TagString: Enemy
@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.70710677, z: 0.70710677, w: 0}
   m_LocalPosition: {x: -21.16, y: 9.04, z: -1.5}
   m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -104,21 +106,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &7235139954592270781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5637699430216541810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9602fdf9dbeddd64889c9c17e956b17c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  fireRate: 0.3
-  health: 10
 --- !u!114 &6028587940863212116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +131,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.799999, y: 0.9000001, z: 2.2256696}
   m_Center: {x: 0, y: 0.44999993, z: -0.000000053644175}
+--- !u!114 &-9189604818285911143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637699430216541810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664cb27564bd53d4aaa8715e93c0001c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  fireRate: 0.3
+  health: 10
+  waveFrequency: 2
+  waveWidth: 4
+  waveRotY: 45
