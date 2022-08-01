@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed = 10;
     [SerializeField] private float fireRate = 0.3f;
     [SerializeField] private float health = 10;
+    
     private int score = 100;
 
     public Vector3 pos { get => transform.position; set { transform.position = value; } }

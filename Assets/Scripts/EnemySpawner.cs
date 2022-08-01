@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         S = this;
+        
         Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
     }
 
@@ -19,8 +20,8 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnEnemy()
     {
         int ndx = Random.Range(0, enemyPrefabs.Length);
-       
-        GameObject go = Instantiate<GameObject>(enemyPrefabs[ndx]);
+        ndx = 3;
+       GameObject go = Instantiate<GameObject>(enemyPrefabs[ndx]);
 
         Vector3 pos = Vector3.zero;
         float xBound = 27;
@@ -34,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void DelayedRestart (float delay)
     {
+        
         Invoke("Restart", delay);
     }
 

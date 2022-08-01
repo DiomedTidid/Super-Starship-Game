@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8869088709944791500}
   - component: {fileID: 6697312761984001286}
   - component: {fileID: 5006202687735740590}
-  - component: {fileID: 7159781260141617421}
   - component: {fileID: 1347015295893702830}
   - component: {fileID: -453184779261696757}
+  - component: {fileID: 2443355228742642263}
   m_Layer: 7
   m_Name: Enemy_2
   m_TagString: Enemy
@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.70710677, z: 0.70710677, w: 0}
   m_LocalPosition: {x: -7.05, y: 9.23, z: -1.5}
   m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -104,21 +106,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &7159781260141617421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5184028039516816595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9602fdf9dbeddd64889c9c17e956b17c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  fireRate: 0.3
-  health: 10
 --- !u!114 &1347015295893702830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +131,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9999994, y: 0.8000001, z: 2.0999997}
   m_Center: {x: 0, y: 0.39999992, z: -0.00000004768371}
+--- !u!114 &2443355228742642263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184028039516816595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab912c628f8cac54db91126f9ec857c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  fireRate: 0.3
+  health: 10
+  speedX: 15
