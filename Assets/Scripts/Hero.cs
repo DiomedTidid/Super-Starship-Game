@@ -14,11 +14,11 @@ public class Hero : MonoBehaviour
     [SerializeField]  private float rollMult = -45;
     [SerializeField]  private float pitchMult = 30;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float bulletSpeed = 40;
     [SerializeField] private GameObject shield;
     [SerializeField] private TextMeshProUGUI shieldLevelText;
-
-    public static Action shootAction;
+    [SerializeField] private GameObject[] weapons;
+    public static event Action shootAction;
+    public int blasterCount = 1;
        
     private float restartDelay = 3f;
 
@@ -28,31 +28,60 @@ public class Hero : MonoBehaviour
     {
         if (S == null) S = this;
         else Debug.LogError("Hero.Awake() - second Hero");
-        //shoot += TempFire;
+        
     }
 
-    
+   
     void Update()
     {
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxisRaw("Vertical");
+        Move();
 
-        Vector3 pos = transform.position;
-        pos.x += xAxis * speed * Time.deltaTime;
-        pos.y += yAxis * speed * Time.deltaTime;
-        transform.position = pos;
-        transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * pitchMult, 0);
-
-        //if (Input.GetKeyDown(KeyCode.Space)) TempFire();
         if (Input.GetAxis("Jump") == 1) shootAction?.Invoke();
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        ShieldLevelDown();
-        Destroy(other.gameObject);
+        if (other.CompareTag("PowerUp")) AbsorbPowerUp(other);
+        else
+        {
+            ShieldLevelDown();
+            Destroy(other.gameObject);
+        }
         
+    }
+
+    private void AbsorbPowerUp(Collider other)
+    {
+        PowerUp pu = other.GetComponent<PowerUp>();
+        switch (pu.type)
+
+        {
+            case "Blaster":
+                BlasterActivate();
+                break;
+            case "Shield":
+                ShieldLevelUp();
+                break;
+            case "Phaser":
+                DeactivateAllGuns();
+                weapons[3].SetActive(true);
+                break;
+            default: return;
+        }
+    }
+
+    
+
+    private void Move()
+    {
+        float xAxis = Input.GetAxis("Horizontal");
+        float yAxis = Input.GetAxisRaw("Vertical");
+        Vector3 pos = transform.position;
+        pos.x += xAxis * speed * Time.deltaTime;
+        pos.y += yAxis * speed * Time.deltaTime;
+        transform.position = pos;
+        transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * pitchMult, 0);
     }
 
     private void ShieldLevelDown ()
@@ -64,23 +93,32 @@ public class Hero : MonoBehaviour
             Destroy(this.gameObject);
             shieldLevelText.text = "Shield Level: " + (shieldLevel+1);
             EnemySpawner.S.DelayedRestart(restartDelay);
-            shootAction -= TempFire;
+            
         }
         else if (shieldLevel == 0) shield.SetActive(false);
     }
 
-    private void TempFire()
+    private void ShieldLevelUp()
     {
-        GameObject projGo = Instantiate<GameObject>(bulletPrefab);
-        projGo.transform.position = transform.position;
-        Rigidbody rigidB = projGo.GetComponent<Rigidbody>();
-        //rigidB.velocity = Vector3.up * bulletSpeed;
-
-        Projectile proj = projGo.GetComponent<Projectile>();
-        proj.type = WeaponType.blaster;
-        float tSpeed = EnemySpawner.GetWeaponDefinition(proj.type).velocity;
-        rigidB.velocity = Vector3.up * tSpeed;
-
+        shieldLevel++;
+        if (shieldLevel == 1) shield.SetActive(true);
+        shieldLevelText.text = "Shield Level: " + shieldLevel;
     }
-
+    private void BlasterActivate()
+    {
+        if (!weapons[0].activeInHierarchy)
+        {
+            DeactivateAllGuns();
+            weapons[0].SetActive(true);
+        }
+        else if (!weapons[1].activeInHierarchy) weapons[1].SetActive(true);
+        else weapons[2].SetActive(true);
+    }
+    private void DeactivateAllGuns()
+    {
+        foreach (var item in weapons)
+        {
+            item.SetActive(false);
+        }
+    }
 }

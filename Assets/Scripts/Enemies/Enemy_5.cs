@@ -9,11 +9,14 @@ public class Enemy_5 : Enemy
     [SerializeField] private float frequency = 1.5f;
 
     private float x0;
+    private float sin0 = 20;
    
 
     void Start()
     {
-        x0 = pos.x;
+        if (pos.x < -sin0) x0 = -sin0;
+        else if (pos.x > sin0) x0 = sin0;
+        else x0 = pos.x;
         
     }
 

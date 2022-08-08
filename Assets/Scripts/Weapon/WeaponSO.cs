@@ -5,13 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Weapon SO", order = 1)]
 public class WeaponSO : ScriptableObject
 {
-    public string type;
-    public WeaponDefinition def;
+    [field: SerializeField]
+    public string type { get; private set; }
+   
     public GameObject projectilePrefab;
-    public float lastShotTime;
-    public float damageOnHit = 0;
-    public float continuousDamage = 0;
-    public float delayBetweenShots = 0;
-    public float velocity = 20;
+    [field: SerializeField]
+    public float damageOnHit { get; private set; }
+    [field: SerializeField]
+    public float continuousDamage { get; private set; }
+    [field: SerializeField]
+    public float delayBetweenShots { get; private set; }
+    [field: SerializeField]
+    public float velocity { get; private set; }
 
 }

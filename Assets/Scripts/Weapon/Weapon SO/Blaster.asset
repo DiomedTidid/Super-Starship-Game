@@ -12,19 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518356d7c46f2544299c7d5d02e65e88, type: 3}
   m_Name: Blaster
   m_EditorClassIdentifier: 
-  type: Blaster
-  def:
-    type: 0
-    letter: 
-    projectilePrefab: {fileID: 0}
-    damageOnHit: 0
-    continuousDamage: 0
-    delayBetweenShots: 0
-    velocity: 20
-  gun: {fileID: 0}
+  <type>k__BackingField: 
   projectilePrefab: {fileID: 5012844457915915696, guid: f92d4ad64abeb434192dfe92b549868d, type: 3}
-  lastShotTime: 0
-  damageOnHit: 0
-  continuousDamage: 0
-  delayBetweenShots: 0
-  velocity: 20
+  <damageOnHit>k__BackingField: 1
+  <continuousDamage>k__BackingField: 0
+  <delayBetweenShots>k__BackingField: 0.4
+  <velocity>k__BackingField: 20
