@@ -374,7 +374,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: d3a7cc34103ed1841a2cc09aff5538a1, type: 2}
   muzzle: {fileID: 32862314}
-  gunNumber: 1
 --- !u!1 &820239535 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1360286697911705275, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
@@ -422,6 +421,7 @@ GameObject:
   - component: {fileID: 915857141}
   - component: {fileID: 915857143}
   - component: {fileID: 915857142}
+  - component: {fileID: 915857144}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -546,6 +546,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915857140}
   m_CullTransparentMesh: 1
+--- !u!114 &915857144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915857140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca57dfcb1824224f9b748c1e18001d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &930119752
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +638,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -718,6 +731,22 @@ MonoBehaviour:
   - {fileID: 5184028039516816595, guid: e01077a3290532744ac696264d91ae57, type: 3}
   - {fileID: 7843993028640728845, guid: d6f230f881831504c9550b9e8bdab36b, type: 3}
   - {fileID: 5637699430216541810, guid: 45cf2a0ba86cb424498117500d7c524c, type: 3}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e41853ebd0dc494c8bdb5a8dcc43991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpsPrefabs:
+  - {fileID: 3447570991092185790, guid: 313622c68c1ade84aa6ad4ed134ca32f, type: 3}
+  - {fileID: 290687837702783604, guid: 7ec666254a3a8774484c6a100d563d95, type: 3}
+  - {fileID: 3030870314204351387, guid: 5b1a730014c8b60458970f0955688657, type: 3}
 --- !u!1 &1300844750 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 937530173742384567, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
@@ -742,7 +771,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: d3a7cc34103ed1841a2cc09aff5538a1, type: 2}
   muzzle: {fileID: 846901127}
-  gunNumber: 2
 --- !u!1 &1482337143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4098054563328133496, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
@@ -767,7 +795,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: d3a7cc34103ed1841a2cc09aff5538a1, type: 2}
   muzzle: {fileID: 1623699594}
-  gunNumber: 3
 --- !u!1 &1623699593
 GameObject:
   m_ObjectHideFlags: 0

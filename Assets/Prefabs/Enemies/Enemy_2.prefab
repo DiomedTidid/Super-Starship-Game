@@ -146,4 +146,5 @@ MonoBehaviour:
   speed: 10
   fireRate: 0.3
   health: 10
+  score: 133
   speedX: 15

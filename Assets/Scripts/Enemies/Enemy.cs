@@ -9,8 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed = 10;
     [SerializeField] private float fireRate = 0.3f;
     [SerializeField] private float health = 10;
-    
-    private int score = 100;
+    [SerializeField] private int score = 100;
 
     public Vector3 pos { get => transform.position; set { transform.position = value; } }
 
@@ -32,6 +31,7 @@ public class Enemy : MonoBehaviour
         GameObject otherGO = collision.gameObject;
         if (otherGO.tag == "ProjectileHero")
         {
+            GlobalEventManager.SendEnemyKilled(transform.position, score);
             Destroy(otherGO);
             Destroy(gameObject);
         }

@@ -146,6 +146,6 @@ MonoBehaviour:
   speed: 10
   fireRate: 0.3
   health: 10
-  waveFrequency: 2
-  waveWidth: 4
-  waveRotY: 45
+  score: 38
+  amplitude: 8
+  frequency: 1.5

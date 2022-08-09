@@ -6,13 +6,7 @@ public class WeaponTEST : MonoBehaviour
 {
     [SerializeField] private WeaponSO weaponData;
     [SerializeField] private Transform muzzle;
-    [SerializeField] private int gunNumber;
     private float timeSinceLastShoot = 0;
-
-    private void Awake()
-    {
-       
-    }
 
     private void OnEnable()
     {
@@ -41,10 +35,5 @@ public class WeaponTEST : MonoBehaviour
 
     }
 
-    public void ActivateGun()
-    {
-       
-        gameObject.SetActive(true);
-
-    }
+    
 }

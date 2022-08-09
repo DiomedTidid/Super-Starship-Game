@@ -18,7 +18,7 @@ public class Hero : MonoBehaviour
     [SerializeField] private TextMeshProUGUI shieldLevelText;
     [SerializeField] private GameObject[] weapons;
     public static event Action shootAction;
-    public int blasterCount = 1;
+    
        
     private float restartDelay = 3f;
 

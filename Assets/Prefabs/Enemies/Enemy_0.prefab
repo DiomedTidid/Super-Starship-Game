@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.70710677, z: 0.70710677, w: 0}
   m_LocalPosition: {x: 2, y: 22.79, z: -1.5}
   m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -119,6 +121,7 @@ MonoBehaviour:
   speed: 10
   fireRate: 0.3
   health: 10
+  score: 75
 --- !u!114 &5468513615522226306
 MonoBehaviour:
   m_ObjectHideFlags: 0
