@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float fireRate = 0.3f;
     [SerializeField] private float health = 10;
     [SerializeField] private int score = 100;
+    [SerializeField] private ParticleSystem spark;
 
     public Vector3 pos { get => transform.position; set { transform.position = value; } }
 
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
         if (otherGO.tag == "ProjectileHero")
         {
             GlobalEventManager.SendEnemyKilled(transform.position, score);
+            Instantiate(spark, transform.position, Quaternion.identity);
             Destroy(otherGO);
             Destroy(gameObject);
         }

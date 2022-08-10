@@ -147,4 +147,5 @@ MonoBehaviour:
   fireRate: 0.3
   health: 10
   score: 133
+  spark: {fileID: 9195707780191336832, guid: 112f5c595e41f3842bac61ec4a609b2f, type: 3}
   speedX: 15

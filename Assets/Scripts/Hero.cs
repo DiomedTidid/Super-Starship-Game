@@ -11,7 +11,6 @@ public class Hero : MonoBehaviour
     static public Hero S;
     [Header("Set in Inspector")]
     [SerializeField]  private float speed = 30;
-    [SerializeField]  private float rollMult = -45;
     [SerializeField]  private float pitchMult = 30;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject shield;

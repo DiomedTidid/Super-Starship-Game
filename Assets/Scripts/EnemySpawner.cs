@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnEnemy()
     {
         int ndx = Random.Range(0, enemyPrefabs.Length);
-        
+       
        GameObject go = Instantiate<GameObject>(enemyPrefabs[ndx]);
 
         Vector3 pos = Vector3.zero;
