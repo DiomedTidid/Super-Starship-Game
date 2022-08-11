@@ -2,30 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public enum WeaponType
-{
-    none,
-    blaster,
-    spread,
-    phaser,
-    missile,
-    laser,
-    shield
-}
-[System.Serializable]
-public class WeaponDefinition
-{
-    public WeaponType type = WeaponType.none;
-    public string letter;
-    public GameObject projectilePrefab;
-    public float damageOnHit = 0;
-    public float continuousDamage = 0;
-    public float delayBetweenShots = 0;
-    public float velocity = 20;
-
-}
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private WeaponSO weaponData;
+    [SerializeField] private Transform muzzle;
+    private float timeSinceLastShoot = 0;
 
+    private void OnEnable()
+    {
+       Hero.shootAction += Shoot;
+    }
+
+    private void OnDisable()
+    {
+        Hero.shootAction -= Shoot;
+       
+    }
+
+    void Update()
+    {
+        timeSinceLastShoot += Time.deltaTime;
+    }
+
+    public void Shoot()
+    {
+        if (timeSinceLastShoot < weaponData.delayBetweenShots) return;
+        GameObject projGo = Instantiate(weaponData.projectilePrefab);
+        projGo.transform.position = muzzle.position;
+        Rigidbody rigidB = projGo.GetComponent<Rigidbody>();
+        rigidB.velocity = Vector3.up * weaponData.velocity;
+        timeSinceLastShoot = 0;
+
+    }
+
+    
 }

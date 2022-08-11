@@ -15,7 +15,7 @@ public class PowerUpsDrop : MonoBehaviour
     private void optionForDrop(Vector3 position, int score)
     {
         float rnd = Random.Range(0, 101);
-        if (rnd <= 50) PowerUpDrop(position, score);
+        if (rnd <= 30) PowerUpDrop(position, score);
     }
 
     private void PowerUpDrop(Vector3 position, int score)

@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [Header("Set in Inspector: Enemy")]
     [SerializeField] private float speed = 10;
     [SerializeField] private float fireRate = 0.3f;
-    [SerializeField] private float health = 10;
+    [SerializeField] private float health = 1;
     [SerializeField] private int score = 100;
     [SerializeField] private ParticleSystem spark;
 
@@ -32,10 +32,15 @@ public class Enemy : MonoBehaviour
         GameObject otherGO = collision.gameObject;
         if (otherGO.tag == "ProjectileHero")
         {
-            GlobalEventManager.SendEnemyKilled(transform.position, score);
-            Instantiate(spark, transform.position, Quaternion.identity);
+            health -= otherGO.GetComponent<Projectile>().weaponData.damageOnHit;
             Destroy(otherGO);
-            Destroy(gameObject);
+            if (health <= 0) 
+            {
+                GlobalEventManager.SendEnemyKilled(transform.position, score);
+                Instantiate(spark, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+           
         }
         else Debug.Log("Enemy hit by non-ProjectileHero");
     }
