@@ -16,11 +16,16 @@ public class Hero : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] private TextMeshProUGUI shieldLevelText;
     [SerializeField] private GameObject[] weapons;
+    [SerializeField] private ParticleSystem engineFireMain;
+    [SerializeField] private ParticleSystem engineFireRight;
+    [SerializeField] private ParticleSystem engineFireLeft;
+    [SerializeField] private ParticleSystem[] noseFires;
     public static event Action shootAction;
     
        
     private float restartDelay = 3f;
-
+    private float xAxis;
+    private float yAxis;
     [Header("Set Dynamically")]
     public float shieldLevel = 1;
     void Awake()
@@ -33,12 +38,16 @@ public class Hero : MonoBehaviour
    
     void Update()
     {
+        xAxis = Input.GetAxis("Horizontal");
+        yAxis = Input.GetAxisRaw("Vertical");
         Move();
+        EngineFire();
 
         if (Input.GetAxis("Jump") == 1) shootAction?.Invoke();
         
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PowerUp")) AbsorbPowerUp(other);
@@ -74,15 +83,46 @@ public class Hero : MonoBehaviour
 
     private void Move()
     {
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxisRaw("Vertical");
         Vector3 pos = transform.position;
         pos.x += xAxis * speed * Time.deltaTime;
         pos.y += yAxis * speed * Time.deltaTime;
         transform.position = pos;
         transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * pitchMult, 0);
+        
     }
 
+    private void EngineFire()
+    {
+        if (yAxis > 0.1) engineFireMain.Play();
+        else 
+        {
+            engineFireMain.Pause();
+            engineFireMain.Clear();
+        }
+        if (yAxis < -0.1) foreach (var item in noseFires) item.Play();
+        else
+        {
+            foreach (var item in noseFires)
+            {
+                item.Pause();
+                item.Clear();
+            }
+        }
+               
+        if (xAxis > 0) engineFireLeft.Play();
+        else
+        {
+            engineFireLeft.Pause();
+            engineFireLeft.Clear();
+        }
+        if (xAxis < 0) engineFireRight.Play();
+        else
+        {
+            engineFireRight.Pause();
+            engineFireRight.Clear();
+        }
+       
+    }
     private void ShieldLevelDown ()
     {
         shieldLevel--;

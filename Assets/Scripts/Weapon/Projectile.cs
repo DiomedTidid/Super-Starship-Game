@@ -6,8 +6,6 @@ public class Projectile : MonoBehaviour
 {
 
     [SerializeField] public WeaponSO weaponData;
-
-
-
+    
 
 }
