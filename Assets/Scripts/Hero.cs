@@ -131,8 +131,8 @@ public class Hero : MonoBehaviour
         {
             Destroy(this.gameObject);
             shieldLevelText.text = "Shield Level: " + (shieldLevel+1);
-            EnemySpawner.S.DelayedRestart(restartDelay);
-            
+            GlobalEventManager.OnGameOver.Invoke();
+                       
         }
         else if (shieldLevel == 0) shield.SetActive(false);
     }

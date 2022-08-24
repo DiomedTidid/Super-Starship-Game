@@ -34,16 +34,7 @@ public class EnemySpawner : MonoBehaviour
         Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
     }
 
-    public void DelayedRestart (float delay)
-    {
-        
-        Invoke("Restart", delay);
-    }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(0);
-    }
+    
 
    
 }
