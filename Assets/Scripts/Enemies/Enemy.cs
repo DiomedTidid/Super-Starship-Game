@@ -32,19 +32,25 @@ public class Enemy : MonoBehaviour
         GameObject otherGO = collision.gameObject;
         if (otherGO.tag == "ProjectileHero")
         {
-            health -= otherGO.GetComponent<Projectile>().weaponData.damageOnHit;
+            TakeDamage(otherGO.GetComponent<Projectile>().weaponData.damageOnHit);
             Destroy(otherGO);
-            if (health <= 0) 
-            {
-                GlobalEventManager.SendEnemyKilled(transform.position, score);
-                Instantiate(spark, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-           
+            
+            
         }
         else Debug.Log("Enemy hit by non-ProjectileHero");
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            GlobalEventManager.SendEnemyKilled(transform.position, score);
+            Instantiate(spark, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+
+    }
 
 
 

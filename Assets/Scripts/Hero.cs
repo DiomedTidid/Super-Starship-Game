@@ -21,8 +21,9 @@ public class Hero : MonoBehaviour
     [SerializeField] private ParticleSystem engineFireLeft;
     [SerializeField] private ParticleSystem[] noseFires;
     public static event Action shootAction;
-    
-       
+    public static event Action unshootAction;
+
+
     private float restartDelay = 3f;
     private float xAxis;
     private float yAxis;
@@ -44,6 +45,7 @@ public class Hero : MonoBehaviour
         EngineFire();
 
         if (Input.GetAxis("Jump") == 1) shootAction?.Invoke();
+        if (Input.GetKeyUp(KeyCode.Space)) unshootAction?.Invoke();
         
     }
 
@@ -71,7 +73,7 @@ public class Hero : MonoBehaviour
             case "Shield":
                 ShieldLevelUp();
                 break;
-            case "Phaser":
+            case "Laser":
                 DeactivateAllGuns();
                 weapons[3].SetActive(true);
                 break;

@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
-    static public EnemySpawner S;
+   
     [SerializeField] private float enemySpawnPerSecond = 0.5f;
     [SerializeField] private GameObject[] enemyPrefabs;
      
 
     void Awake()
     {
-        S = this;
+        
         Invoke("SpawnEnemy", 1f / enemySpawnPerSecond);
 
     }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1480786951561244002}
   - component: {fileID: -6168641880636358151}
   - component: {fileID: -3637285082113638834}
+  - component: {fileID: 7545805998541239020}
   m_Layer: 7
   m_Name: Enemy_1
   m_TagString: Enemy
@@ -144,7 +145,21 @@ BoxCollider:
   m_GameObject: {fileID: 5048287770776753243}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.5000007, y: 0.9000008, z: 2.5000005}
   m_Center: {x: 6.3948845e-15, y: 0.4500001, z: 0.000000107288386}
+--- !u!64 &7545805998541239020
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048287770776753243}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5929413182660809273, guid: 1ad6e6f478358374c8e44f2585905afd, type: 3}

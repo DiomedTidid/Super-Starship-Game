@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6028587940863212116}
   - component: {fileID: -425088776013460459}
   - component: {fileID: -9189604818285911143}
+  - component: {fileID: 8662801587568634244}
   m_Layer: 7
   m_Name: Enemy_5
   m_TagString: Enemy
@@ -127,7 +128,7 @@ BoxCollider:
   m_GameObject: {fileID: 5637699430216541810}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.799999, y: 0.9000001, z: 2.2256696}
   m_Center: {x: 0, y: 0.44999993, z: -0.000000053644175}
@@ -150,3 +151,17 @@ MonoBehaviour:
   spark: {fileID: 9195707780191336832, guid: 112f5c595e41f3842bac61ec4a609b2f, type: 3}
   amplitude: 8
   frequency: 1.5
+--- !u!64 &8662801587568634244
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637699430216541810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4420684004710436906, guid: 28f9f35dc2ed8814b8ace648046052ff, type: 3}

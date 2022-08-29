@@ -9,6 +9,7 @@ public class WeaponSO : ScriptableObject
     public string type { get; private set; }
    
     public GameObject projectilePrefab;
+    public LayerMask enemyLayer;
     [field: SerializeField]
     public float damageOnHit { get; private set; }
     [field: SerializeField]
@@ -17,5 +18,7 @@ public class WeaponSO : ScriptableObject
     public float delayBetweenShots { get; private set; }
     [field: SerializeField]
     public float velocity { get; private set; }
+    [field: SerializeField]
+    public bool isItLaser { get; private set; }
 
 }

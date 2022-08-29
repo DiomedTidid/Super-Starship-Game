@@ -10,4 +10,8 @@ public class UI_Menu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
