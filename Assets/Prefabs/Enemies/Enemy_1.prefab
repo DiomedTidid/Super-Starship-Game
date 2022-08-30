@@ -120,10 +120,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  fireRate: 0.3
-  health: 3
+  fireRate: 5
+  bulletVelocity: 20
+  health: 5
   score: 50
   spark: {fileID: 9195707780191336832, guid: 112f5c595e41f3842bac61ec4a609b2f, type: 3}
+  bullet: {fileID: 5012844457915915696, guid: b0642a42636d47c4e9e68d9742a50ddc, type: 3}
 --- !u!114 &-6168641880636358151
 MonoBehaviour:
   m_ObjectHideFlags: 0

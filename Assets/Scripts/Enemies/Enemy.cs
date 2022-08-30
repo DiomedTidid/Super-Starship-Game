@@ -7,20 +7,36 @@ public class Enemy : MonoBehaviour
 {
     [Header("Set in Inspector: Enemy")]
     [SerializeField] private float speed = 10;
-    [SerializeField] private float fireRate = 0.3f;
+    [SerializeField] private float fireRate = 10f;
+    [SerializeField] private float bulletVelocity = 20f;
     [SerializeField] private float health = 1;
     [SerializeField] private int score = 100;
     [SerializeField] private ParticleSystem spark;
-
+    [SerializeField] private GameObject bullet;
+    private float timeSinceLastShoot = 0;
     public Vector3 pos { get => transform.position; set { transform.position = value; } }
 
 
     void Update()
     {
         Move();
+        Shoot();
+        timeSinceLastShoot += Time.deltaTime;
     }
 
-   public virtual void Move()
+    private void Shoot()
+    {
+        if (timeSinceLastShoot < fireRate) return;
+        
+        GameObject projGo = Instantiate(bullet);
+        projGo.transform.position = new Vector3(transform.position.x, transform.position.y-3, transform.position.z);
+        Rigidbody rigidB = projGo.GetComponent<Rigidbody>();
+        rigidB.velocity = Vector3.down * bulletVelocity;
+        timeSinceLastShoot = 0;
+
+    }
+
+    public virtual void Move()
     {
         Vector3 tempPos = pos;
         tempPos.y -= speed * Time.deltaTime;

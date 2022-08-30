@@ -20,11 +20,11 @@ public class Hero : MonoBehaviour
     [SerializeField] private ParticleSystem engineFireRight;
     [SerializeField] private ParticleSystem engineFireLeft;
     [SerializeField] private ParticleSystem[] noseFires;
+    [SerializeField] private ParticleSystem heroExplosion;
     public static event Action shootAction;
     public static event Action unshootAction;
 
 
-    private float restartDelay = 3f;
     private float xAxis;
     private float yAxis;
     [Header("Set Dynamically")]
@@ -127,14 +127,18 @@ public class Hero : MonoBehaviour
     }
     private void ShieldLevelDown ()
     {
+       
         shieldLevel--;
         shieldLevelText.text = "Shield Level: " + shieldLevel;
         if(shieldLevel < 0)
         {
-            Destroy(this.gameObject);
+            
+            Instantiate(heroExplosion, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
             shieldLevelText.text = "Shield Level: " + (shieldLevel+1);
-            GlobalEventManager.OnGameOver.Invoke();
-                       
+            GlobalEventManager.SendGameOver();
+
+
         }
         else if (shieldLevel == 0) shield.SetActive(false);
     }
@@ -162,4 +166,5 @@ public class Hero : MonoBehaviour
             item.SetActive(false);
         }
     }
+   
 }

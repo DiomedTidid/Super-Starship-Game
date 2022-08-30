@@ -454,7 +454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &271695797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2317,6 +2317,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2425,6 +2426,18 @@ MonoBehaviour:
   - {fileID: 3447570991092185790, guid: 313622c68c1ade84aa6ad4ed134ca32f, type: 3}
   - {fileID: 290687837702783604, guid: 7ec666254a3a8774484c6a100d563d95, type: 3}
   - {fileID: 3030870314204351387, guid: 5b1a730014c8b60458970f0955688657, type: 3}
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c71f5045b656248a245dd97cdfa316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1042550971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3938322191269442424, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
@@ -9299,7 +9312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1360286697911705275, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1849683294288282625, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
       propertyPath: m_LocalScale.x
@@ -9353,6 +9366,10 @@ PrefabInstance:
       propertyPath: engineFire
       value: 
       objectReference: {fileID: 1461720226}
+    - target: {fileID: 5622322910386798332, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
+      propertyPath: heroExplosion
+      value: 
+      objectReference: {fileID: 3464210720919517985, guid: 58444bc9019cf7b43bb8f8708f7757fd, type: 3}
     - target: {fileID: 5622322910386798332, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
       propertyPath: engineFireLeft
       value: 
@@ -9451,7 +9468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6210280949121419652, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9028233660449520274, guid: 90e1f7612a0b8d14bb9c43c65115de12, type: 3}
       propertyPath: m_LocalPosition.x

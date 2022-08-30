@@ -14,6 +14,7 @@ public class UI_GameOver : MonoBehaviour
    public void ActivateWindow()
     {
         gameObject.SetActive(true);
+
     }
 
     public void ExitGame()
@@ -24,4 +25,6 @@ public class UI_GameOver : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    
+    
 }

@@ -145,10 +145,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  fireRate: 0.3
+  fireRate: 3.1
+  bulletVelocity: 22
   health: 3
   score: 76
   spark: {fileID: 9195707780191336832, guid: 112f5c595e41f3842bac61ec4a609b2f, type: 3}
+  bullet: {fileID: 5012844457915915696, guid: b0642a42636d47c4e9e68d9742a50ddc, type: 3}
 --- !u!64 &8025543616219628535
 MeshCollider:
   m_ObjectHideFlags: 0
